@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+      <h1> Form Validation Example</h1>
+
+      <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input formControlName="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input formControlName="password" class="form-control" id="pswd" type="password" placeholder="Contraseña">
+        </div>
+        <div class="clearfix">
+          <div class="btn-toolbar pull-xs-right m-t-1">
+            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-inverse btn-sm"> Validar  </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
