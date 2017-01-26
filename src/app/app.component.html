@@ -4,11 +4,19 @@
       <h1> Form Validation Example</h1>
 
       <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
         <div class="form-group">
-          <input formControlName="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+          <input formControlName="name" class="form-control" type="text"  placeholder="Name">
         </div>
+        <p *ngIf="!name.pristine && name.hasError('required')">El Nombre es requerido</p>
+
         <div class="form-group">
-          <input formControlName="password" class="form-control" id="pswd" type="password" placeholder="Contraseña">
+          <input formControlName="email" class="form-control" type="email" placeholder="Email">
+        </div>
+        <p *ngIf="!email.pristine && email.hasError('required')">El Email es requerido</p>
+
+        <div class="form-group">
+          <input formControlName="password" class="form-control" type="password" placeholder="Contraseña">
         </div>
         <div class="clearfix">
           <div class="btn-toolbar pull-xs-right m-t-1">
